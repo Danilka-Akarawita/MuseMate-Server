@@ -14,6 +14,10 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  mobile:{
+    type:Number,
+    required:true
+  },
   UID: {
     type: String,
     required: true,
