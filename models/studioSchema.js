@@ -7,7 +7,7 @@ const studioSchema = new mongoose.Schema({
     required: true
   },
   pricePerhour: {
-    type: price,  
+    type: String,  
     required: true
   },
   keyboardQuantity: {

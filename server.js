@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const studioDetailsRoutes = require("./routes/studioDetails");
 const mongoose = require("mongoose");
 const app = express();
 
@@ -16,3 +17,5 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
+
+  app.use("/api/studioDetails",studioDetailsRoutes);
