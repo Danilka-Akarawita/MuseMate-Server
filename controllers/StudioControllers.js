@@ -12,8 +12,10 @@ const  insertValues=(req,res)=>{
         microphoneQuantity: 3,
         area: "10x14"
       })
-
     
+
+      
+
 
     studio.save()
     .then((data) => {
@@ -26,6 +28,20 @@ const  insertValues=(req,res)=>{
 
 }
 
+
+    
+const getAllStudioDetails = (req, res) => {
+    studioSchema.find()
+      .then((studios) => {
+        res.status(200).json(studios)
+      })
+      .catch((err) => {
+        console.log(err)
+        res.status(500).send("Error retrieving studio details  from database.")
+      })
+  }
+
 module.exports={
-    insertValues
+    insertValues,
+    getAllStudioDetails
 }
