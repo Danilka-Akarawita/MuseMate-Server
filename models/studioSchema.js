@@ -37,4 +37,4 @@ const studioSchema = new mongoose.Schema({
 },
 { timestamps: true }
 );
-module.exports = mongoose.model("Musemate", studioSchema);
+module.exports = mongoose.model("Studio", studioSchema);

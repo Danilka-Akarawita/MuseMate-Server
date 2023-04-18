@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const studioDetailsRoutes = require("./routes/studioDetails");
+const  ClientDetailsRoutes= require("./routes/ClientDetails")
 const mongoose = require("mongoose");
 const app = express();
 
@@ -19,3 +20,4 @@ mongoose
   });
 
   app.use("/api/studioDetails",studioDetailsRoutes);
+  app.use("/api/clientDetails",ClientDetailsRoutes);

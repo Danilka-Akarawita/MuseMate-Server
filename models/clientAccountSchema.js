@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 const clientSchema = new mongoose.Schema({
-  name: {
+  Clientname: {
     type: String,
     required: true
   },
@@ -15,14 +15,15 @@ const clientSchema = new mongoose.Schema({
     required: true
   },
   mobile:{
-    type:Number,
+    type:String,
     required:true
   },
-  UID: {
-    type: String,
-    required: true,
-  },
+  StudioName:{
+    type:String,
+    require:true
+  }
+ 
 },
 { timestamps: true }
 );
-module.exports = mongoose.model("Musemate", clientSchema);
+module.exports = mongoose.model("Client", clientSchema);
