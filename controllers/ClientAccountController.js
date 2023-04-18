@@ -31,8 +31,20 @@ const getAllClientDetails = (req, res) => {
       })
   }
 
+  const getClientDetailByDate = (req, res) => {
+    clientAccountSchema.find({date:'2022-04-18T12:30:00.000Z'})
+      .then((DetailsByDate) => {
+        res.status(200).json(DetailsByDate)
+      })
+      .catch((err) => {
+        console.log(err)
+        res.status(500).send("Error retrieving  details  by date from database.")
+      })
+  }
+
 module.exports={
     insertValues,
-    getAllClientDetails
+    getAllClientDetails,
+    getClientDetailByDate
     
 }
