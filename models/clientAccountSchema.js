@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 
-const eventSchema = new mongoose.Schema({
+const clientSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
   },
   date: {
-    type: Date,
+    type: Date,  
     required: true
   },
   timeSlot: {
@@ -25,4 +25,4 @@ const eventSchema = new mongoose.Schema({
 },
 { timestamps: true }
 );
-module.exports = mongoose.model("Musemate", eventSchema);
+module.exports = mongoose.model("Musemate", clientSchema);
