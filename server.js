@@ -4,6 +4,7 @@ const studioDetailsRoutes = require("./routes/studioDetails");
 const  ClientDetailsRoutes= require("./routes/ClientDetails")
 const mongoose = require("mongoose");
 const app = express();
+app.use(express.json());
 
 
 mongoose.set("strictQuery", false);

@@ -32,7 +32,9 @@ const getAllClientDetails = (req, res) => {
   }
 
   const getClientDetailByDate = (req, res) => {
-    clientAccountSchema.find({date:'2022-04-18T12:30:00.000Z'})
+    const { date } = req.params;
+    console.log(date);
+    clientAccountSchema.find({date:date})
       .then((DetailsByDate) => {
         res.status(200).json(DetailsByDate)
       })
@@ -41,10 +43,42 @@ const getAllClientDetails = (req, res) => {
         res.status(500).send("Error retrieving  details  by date from database.")
       })
   }
+  const getClientDetailByName = (req, res) => {
+    const { Clientname } = req.params;
+    console.log(Clientname);
+    clientAccountSchema.find({Clientname:Clientname})
+      .then((DetailsByName) => {
+        res.status(200).json(DetailsByName)
+      })
+      .catch((err) => {
+        console.log(err)
+        res.status(500).send("Error retrieving  details  by date from database.")
+      })
+  }
+
+  const updateBookingsByName = async (req, res) => {
+    const { name } = req.params;
+  
+  
+    console.log({ ...req.body });
+   
+    const account = await clientAccountSchema.findOneAndUpdate(
+      {  Clientname: name },
+      { ...req.body },
+      {
+        returnOriginal: false,
+      }
+    );
+  
+    if (!account) return res.status(400).json({ error: "No account found" });
+    res.status(200).json(account);
+  };
 
 module.exports={
     insertValues,
     getAllClientDetails,
-    getClientDetailByDate
+    getClientDetailByDate,
+    getClientDetailByName,
+    updateBookingsByName
     
 }
