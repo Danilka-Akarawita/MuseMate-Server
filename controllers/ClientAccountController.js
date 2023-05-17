@@ -20,6 +20,8 @@ const  insertValues=(req,res)=>{
     })
 }
 
+
+
 const getAllClientDetails = (req, res) => {
     clientAccountSchema.find()
       .then((studios) => {

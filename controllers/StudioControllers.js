@@ -1,4 +1,5 @@
 const studioSchema = require('../models/studioSchema')
+const feedbackSchema = require('../models/feedbackSchema')
 
 
 const  insertValues=(req,res)=>{
@@ -48,6 +49,23 @@ const  insertValues=(req,res)=>{
 
 }
 
+const AddFeedBacks =async(req,res)=>{
+  const {id}=req.params
+  console.log(id)
+  const {feedbacks}=req.body
+  console.log(feedbacks)
+  
+  try{
+    
+  const feedbackdetail=await feedbackSchema.create({studioID: id,feedbacks})
+  res.status(200).json(feedbackdetail)
+  console.log(added)
+  }
+  catch (error) {
+    console.error(error);
+    res.status(400).send("Error");
+  }
+}
 
     
 const getAllStudioDetails = (req, res) => {
@@ -63,5 +81,6 @@ const getAllStudioDetails = (req, res) => {
 
 module.exports={
     insertValues,
-    getAllStudioDetails
+    getAllStudioDetails,
+    AddFeedBacks
 }
