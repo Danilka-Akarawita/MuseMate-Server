@@ -59,7 +59,7 @@ const AddFeedBacks =async(req,res)=>{
     
   const feedbackdetail=await feedbackSchema.create({studioID: id,feedbacks})
   res.status(200).json(feedbackdetail)
-  console.log(added)
+  
   }
   catch (error) {
     console.error(error);
