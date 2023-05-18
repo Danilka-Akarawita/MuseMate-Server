@@ -78,9 +78,20 @@ const getAllStudioDetails = (req, res) => {
         res.status(500).send("Error retrieving studio details  from database.")
       })
   }
+  const getAllFeedBacks = (req, res) => {
+    feedbackSchema.find()
+      .then((feedback) => {
+        res.status(200).json(feedback)
+      })
+      .catch((err) => {
+        console.log(err)
+        res.status(500).send("Error retrieving feedbacks  from database.")
+      })
+  }
 
 module.exports={
     insertValues,
     getAllStudioDetails,
-    AddFeedBacks
+    AddFeedBacks,
+    getAllFeedBacks
 }
